@@ -24,6 +24,6 @@ css动画属性用法(transition、:before:after、@keyframes等等)
 - 抖动效果
 - 弹跳效果
 
-# ⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄
+# 原匠人⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄
 
-原匠人[chenhuiYj](https://github.com/chenhuiYj/ec-css)
+[原匠人](https://github.com/chenhuiYj/ec-css)的 ec-css

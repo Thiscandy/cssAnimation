@@ -1,0 +1,787 @@
+/*
+    命名方式
+
+    l 代表 left
+    r 代表 right
+    t 代表 top
+    b 代表 bottom
+    c 代表 center
+    m 代表 middle
+*/
+
+span {
+	cursor: pointer;  /* 定义光标的类型为一只手 */
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	display: inline-block;
+	color: #333;
+	background: #ccc;
+	min-width: 80px;
+	padding: 0 10px;
+	margin: 10px;
+}
+/***
+** 大小变化
+** 形状变化
+** 旋转角度变化
+** 位移变化
+** 边框变化
+** 阴影变化
+*/
+.ec-big,
+.ec-small,
+.ec-skew-l,
+.ec-skew-r,
+.ec-skew-l-t,
+.ec-skew-r-t,
+.ec-skew-l-b,
+.ec-skew-r-b,
+.ec-grow-rotate-l,
+.ec-grow-rotate-r,
+.ec-rotate5,
+.ec-rotate15,
+.ec-rotate30,
+.ec-rotate60,
+.ec-rotate90,
+.ec-rotate180,
+.ec-rotate360,
+.ec-rotate-5,
+.ec-rotate-15,
+.ec-rotate-30,
+.ec-rotate-60,
+.ec-rotate-90,
+.ec-rotate-180,
+.ec-t,
+.ec-b,
+.ec-l,
+.ec-r,
+.ec-border,
+.ec-border-in,
+.ec-shadow,
+.ec-shadow-in,
+.ec-shadow-write,
+.ec-shadow-big,
+.ec-fade-out,
+.ec-fade-in,
+.ec-radius,
+.ec-rectangle {
+	transition: all .4s;  /* 所有属性都有动画过渡效果 */
+}
+
+.ec-big:hover {
+	transform: scale(1.2);  /* 2D 转换 1.2倍变大 */
+}
+
+.ec-small:hover {
+	transform: scale(.9);  /* 2D 转换 0.9倍缩小 */
+}
+
+.ec-skew-l:hover {
+	transform: skew(-15deg);  /* 2D 倾斜转换 向左旋转15度 */
+}
+
+.ec-skew-r:hover {
+	transform: skew(15deg);  /* 2D 倾斜转换 向右旋转15度 */
+}
+
+.ec-skew-r-t, .ec-skew-l-t {
+    transform-origin: 0 100%;  /* 定义视图 x 轴在初始位置 */
+}
+.ec-skew-r-b, .ec-skew-l-b {
+    transform-origin: 100% 0;  /* 定义视图 y 轴在初始位置 */
+}
+
+.ec-skew-l-t:hover {
+    transform: skew(-15deg);  /* 2D 倾斜 */
+}
+
+.ec-skew-r-t:hover {
+    transform: skew(15deg);  /* 2D 倾斜 */
+}
+
+.ec-skew-l-b:hover {
+    transform: skew(15deg);  /* 2D 倾斜 */
+}
+
+.ec-skew-r-b:hover {
+    transform: skew(-15deg);  /* 2D 倾斜 */
+}
+
+.ec-grow-rotate-l:hover {
+    transform: scale(1.1) rotate(4deg);  /* 2D 缩放(scale) 旋转(rotate) */
+}
+
+.ec-grow-rotate-r:hover {
+    transform: scale(1.1) rotate(-4deg);
+}
+
+.ec-rotate-5:hover {
+    transform: rotate(-5deg);  /* 2D 旋转 */
+}
+
+.ec-rotate-15:hover {
+    transform: rotate(-15deg);
+}
+
+.ec-rotate-30:hover {
+    transform: rotate(-30deg);
+}
+
+.ec-rotate-60:hover {
+    transform: rotate(-60deg);
+}
+
+.ec-rotate-90:hover {
+    transform: rotate(-90deg);
+}
+
+.ec-rotate-180:hover {
+    transform: rotate(-180deg);
+}
+
+.ec-rotate5:hover {
+    transform: rotate(5deg);
+}
+
+.ec-rotate15:hover {
+    transform: rotate(15deg);
+}
+
+.ec-rotate30:hover {
+    transform: rotate(30deg);
+}
+
+.ec-rotate60:hover {
+    transform: rotate(60deg);
+}
+
+.ec-rotate90:hover {
+    transform: rotate(90deg);
+}
+
+.ec-rotate180:hover {
+    transform: rotate(180deg);
+}
+
+.ec-rotate360:hover {
+    transform: rotate(360deg);
+}
+
+.ec-t:hover {
+    transform: translate3d(0, -10px, 0);  /* 3D 转换 向上偏移 */
+}
+
+.ec-b:hover {
+    transform: translate3d(0, 10px, 0);  /* 3D 转换 向下偏移 */
+}
+
+.ec-l:hover {
+    transform: translate3d(-10px, 0, 0);  /* 3D 转换 向左偏移 */
+}
+
+.ec-r:hover {
+    transform: translate3d(10px, 0, 0);  /* 3D 转换 向右偏移 */
+}
+
+.ec-border:hover {
+    box-shadow: 0 0 0 4px #09f, 0 0 1px transparent;  /* 边框外阴影 默认外阴影 color:transparent;等价color:rgba(0,0,0,0); */
+}
+
+.ec-border-in:hover {
+    box-shadow: inset 0 0 0 4px #09f, 0 0 1px transparent;  /* 边框内部阴影(inset) */
+}
+
+.ec-shadow:hover {
+    box-shadow: 0 0 10px #333;  /* 边框外阴影 水平位置 垂直阴影 模糊距离 颜色 */
+}
+
+.ec-shadow-in:hover {
+    box-shadow: inset 0 0 10px #333;  /* 边框内部阴影(inset) 水平位置 垂直位置 模糊距离 颜色 */
+}
+
+.ec-shadow-write:hover {
+    box-shadow: inset 0 0 20px #fff;  /* 边框内部阴影(inset)  #fff (白色) */
+}
+
+.ec-shadow-big:hover {
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5); /* 水平位置 垂直位置 模糊距离 阴影尺寸 颜色 */
+    transform: scale(1.1);  /* 2D 缩放 */
+}
+/***
+** 透明度变化
+*/
+.ec-fade-out:hover {
+    opacity: .6;  /* 透明度 */
+}
+
+.ec-fade-in {
+    opacity: .5;  /* 透明度 */
+}
+
+.ec-fade-in:hover {
+    opacity: 1;  /* 透明度为正常 */
+}
+/***
+** 圆角变化
+*/
+.ec-radius {
+    border-radius: 10px;  /* 圆角边框 */
+}
+
+.ec-radius:hover {
+    border-radius: 0;
+}
+
+.ec-rectangle:hover {
+    border-radius: 10px;
+}
+/***
+** 颜色块变化
+*/
+.ec-fade,
+.ec-fade-t,
+.ec-fade-b,
+.ec-fade-l,
+.ec-fade-r,
+.ec-fade-c-in,
+.ec-fade-m-in,
+.ec-fade-m-out,
+.ec-fade-c-out,
+.ec-bounce-t,
+.ec-bounce-b,
+.ec-bounce-r,
+.ec-bounce-l {
+    position: relative;  /* 相对定位 */
+    z-index: 1;
+    transition: all .5s;
+}
+
+.ec-fade:before,
+.ec-fade-t:before,
+.ec-fade-b:before,
+.ec-fade-l:before,
+.ec-fade-r:before,
+.ec-fade-c-in:before,
+.ec-fade-m-in:before,
+.ec-fade-m-out:before,
+.ec-fade-c-in:after,
+.ec-fade-m-in:after,
+.ec-fade-c-out:before {
+    position: absolute;  /* 当前元素的:before和:after设置绝对定位 */
+    transition: all .5s;
+    content: "";
+    display: block;
+    background: #09f;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+.ec-bounce-t:before,
+.ec-bounce-b:before,
+.ec-bounce-r:before,
+.ec-bounce-l:before {
+    transition: all .5s;
+    transition-timing-function: cubic-bezier(0.52, 1.7, 0.5, 0.4); /* 规定过渡效果的弹跳运动速度曲线 */
+    position: absolute;  /* 绝对定位 */
+    content: "";
+    display: block;
+    background: #09f;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+.ec-fade:before {
+    top: 0;
+    left: 0;
+    transform: scaleX(1);  /* X 轴的值来定义缩放转换 */
+    opacity: 0;
+}
+
+.ec-fade:hover:before {
+    opacity: 1;
+}
+
+.ec-fade-l:before, .ec-bounce-l:before {
+    top: 0;
+    right: 0;
+    transform-origin: 0 50%;  /* 颜色从左至右变化 */
+    transform: scaleX(0);
+}
+
+.ec-fade-r:before, .ec-bounce-r:before {
+    top: 0;
+    left: 0;
+    transform-origin: 100% 50%;  /* 颜色从右至左变化 */
+    transform: scaleX(0);
+}
+
+.ec-fade-t:before, .ec-bounce-t:before {
+    bottom: 0;
+    left: 0;
+    transform-origin: 50% 0;
+    transform: scaleY(0);  /* 颜色从上往下变化 */
+}
+
+.ec-fade-b:before, .ec-bounce-b:before {
+    top: 0;
+    left: 0;
+    transform-origin: 50% 100%;
+    transform: scaleY(0);  /* 颜色从下往上变化 */
+}
+
+.ec-fade-c-out:before {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    transform: scaleX(0);  /*水平居中出去*/
+}
+
+.ec-fade-c-out:hover:before {
+    transform: scaleX(1);
+}
+
+.ec-fade-c-in:before {
+    top: 0;
+    left: 0;
+    transform-origin: 0 50%;
+    transform: scaleX(0);  /*水平居中进来*/
+}
+
+.ec-fade-c-in:after {
+    top: 0;
+    right: 0;
+    transform-origin: 100% 50%;
+    transform: scaleX(0);
+}
+
+.ec-fade-m-out:before {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    transform: scaleY(0);  /* 颜色垂直居中出去 */
+}
+
+
+.ec-fade-m-in:before {
+    top: 0;
+    left: 0;
+    transform-origin: 50% 0;
+    transform: scaleY(0);  /* 垂直居中进来 */
+}
+
+.ec-fade-m-in:after {
+    bottom: 0;
+    left: 0;
+    transform-origin: 50% 100%;
+    transform: scaleY(0);
+}
+
+.ec-fade:hover,
+.ec-fade-t:hover,
+.ec-fade-b:hover,
+.ec-fade-l:hover,
+.ec-fade-r:hover,
+.ec-fade-c-in:hover,
+.ec-fade-m-in:hover,
+.ec-fade-m-out:hover,
+.ec-fade-c-out:hover,
+.ec-bounce-t:hover,
+.ec-bounce-b:hover,
+.ec-bounce-r:hover,
+.ec-bounce-l:hover {
+    color: #fff;  /* 文字颜色变化 */
+}
+
+.ec-fade-m-in:hover:before, .ec-fade-m-in:hover:after {
+    transform: scaleY(.51);  /* 垂直方向进来的:before变化（一半） */
+}
+
+.ec-fade-t:hover:before,
+.ec-fade-b:hover:before,
+.ec-fade-m-out:hover:before,
+.ec-bounce-b:hover:before,
+.ec-bounce-t:hover:before {
+    transform: scaleY(1);  /* 垂直方向进来的:before变化 */
+}
+
+.ec-fade-c-in:hover:before, .ec-fade-c-in:hover:after {
+    transform: scaleX(.51);  /* 水平方向进来的:before变化（一半） */
+}
+
+.ec-fade-l:hover:before,
+.ec-fade-r:hover:before,
+.ec-fade-c-out:hover:before,
+.ec-bounce-l:hover:before,
+.ec-bounce-r:hover:before {
+    transform: scaleX(1);  /* 水平方向进来的:before变化 */
+}
+/***
+** 颜色上下划线变化
+*/
+.ec-overline-r,
+.ec-overline-l,
+.ec-underline-r,
+.ec-underline-l,
+.ec-underline-c,
+.ec-overline-c,
+.ec-underline-c-out,
+.ec-overline-c-out{
+    position: relative;  /* 相对定位 */
+    transition: all .3s;
+    z-index: 1;
+}
+
+.ec-overline-r:before,
+.ec-overline-l:before,
+.ec-underline-l:before,
+.ec-underline-r:before,
+.ec-underline-c:before,
+.ec-overline-c:before,
+.ec-underline-c:after,
+.ec-overline-c:after,
+.ec-underline-c-out:before,
+.ec-overline-c-out:before {
+    position: absolute;  /* 初始化线条大小和绝对定位 */
+    transition: all .3s;
+    content: "";
+    display: block;
+    background: #09f;
+    z-index: -1;
+    height: 4px;
+    width: 100%;
+    transform: scaleX(0);
+}
+
+.ec-overline-r:before {
+    top: 0;
+    left: 0;
+    transform-origin: 100% 50%;  /* 上划线 右出来 */
+}
+
+.ec-overline-l:before {
+    top: 0;
+    right: 0;
+    transform-origin: 0 50%; /* 上划线 左出来 */
+}
+
+
+.ec-underline-r:before {
+    bottom: 0;
+    left: 0;
+    transform-origin: 100% 50%;  /* 下划线 右出来 */
+
+}
+
+.ec-underline-l:before {
+    bottom: 0;
+    right: 0;
+    transform-origin: 0% 50%;  /* 下划线 左出来 */
+}
+
+.ec-overline-c:before {
+    top: 0;
+    transform-origin: 0 50%;  /* 上划线 居中进来 */
+}
+
+.ec-overline-c:after {
+    top: 0;
+    transform-origin: 100% 50%;  /* 上划线 居中进来 */
+}
+
+.ec-underline-c:before {
+    bottom: 0;
+    transform-origin: 0 50%;  /* 下划线 居中进来 */
+}
+
+.ec-underline-c:after {
+    bottom: 0;
+    transform-origin: 100% 50%;  /* 下划线 居中进来 */
+}
+
+.ec-overline-c:before, .ec-underline-c:before {
+    left: 0;
+}
+
+.ec-overline-c:after, .ec-underline-c:after {
+    right: 0;
+}
+
+.ec-overline-c-out:before {
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;  /* 上划线 居中出去 */
+}
+
+.ec-underline-c-out:before {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;  /* 下划线 居中出去 */
+}
+
+.ec-overline-c:hover:after,
+.ec-overline-c:hover:before,
+.ec-underline-c:hover:after,
+.ec-underline-c:hover:before {
+    transform: scaleX(.51);  /* hover效果 X 轴定义缩放转换 */
+}
+
+.ec-overline-l:hover:before,
+.ec-overline-r:hover:before,
+.ec-underline-l:hover:before,
+.ec-underline-r:hover:before,
+.ec-underline-c-out:hover:before,
+.ec-overline-c-out:hover:before {
+    transform: scaleX(1);  /* hover效果 X 轴定义缩放转换 */
+}
+/***
+** 箭头动画
+*/
+.ec-arrow-l,
+.ec-arrow-r,
+.ec-arrow-t,
+.ec-arrow-b,
+.ec-arrow-l-move,
+.ec-arrow-r-move,
+.ec-arrow-t-move,
+.ec-arrow-b-move{
+    position: relative;  /* 相对定位 */
+    transition: all .3s;
+    z-index: 1;
+}
+/*初始化箭头样式*/
+.ec-arrow-l:before,
+.ec-arrow-r:before,
+.ec-arrow-t:before,
+.ec-arrow-b:before,
+.ec-arrow-l-move:before,
+.ec-arrow-r-move:before,
+.ec-arrow-t-move:before,
+.ec-arrow-b-move:before {
+    position: absolute;  /* 绝对定位 */
+    transition: all .3s;
+    content: "";
+    display: block;
+    z-index: -1;
+    border-style: solid;  /* 边框的样式为实线 */
+    margin: auto;
+    width: 0;
+    height: 0;
+}
+
+.ec-arrow-l:before, .ec-arrow-l-move:before {
+    left: 0;
+    top: 0;
+    bottom: 0;
+    border-width: 10px 10px 10px 0;  /* 所有边框设置宽度 */
+    border-color: transparent #ccc transparent transparent;  /* 所有边框设置颜色 */
+}
+
+.ec-arrow-r:before, .ec-arrow-r-move:before {
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent #ccc;
+}
+
+.ec-arrow-t:before, .ec-arrow-t-move:before {
+    left: 0;
+    top: 0;
+    right: 0;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #ccc transparent;
+}
+
+.ec-arrow-b:before, .ec-arrow-b-move:before {
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-width: 10px 10px 0 10px;
+    border-color: #ccc transparent transparent transparent;
+}
+
+.ec-arrow-l-move,
+.ec-arrow-r-move,
+.ec-arrow-t-move,
+.ec-arrow-b-move {
+    transition: transform .3s;
+}
+/*hover效果*/
+.ec-arrow-l-move:hover {
+    transform: translateX(10px);
+}
+
+.ec-arrow-r-move:hover {
+    transform: translateX(-10px);
+}
+
+.ec-arrow-t-move:hover {
+    transform: translateY(10px);
+}
+
+.ec-arrow-b-move:hover {
+    transform: translateY(-10px);
+}
+
+.ec-arrow-l-move:hover:before, .ec-arrow-l:hover:before {
+    transform: translateX(-10px);
+}
+
+.ec-arrow-r-move:hover:before, .ec-arrow-r:hover:before {
+    transform: translateX(10px);
+}
+
+.ec-arrow-t-move:hover:before, .ec-arrow-t:hover:before {
+    transform: translateY(-10px);
+}
+
+.ec-arrow-b-move:hover:before, .ec-arrow-b:hover:before {
+    transform: translateY(10px);
+}
+/***
+** 闪烁效果
+*/
+.ec-flash:hover {
+    animation: flash .5s ease;  /* keyframes名称 花费的时间 动画以低速开始，然后加快，在结束前变慢 */
+}
+
+@keyframes flash {  /* 创建动画 flash 时长百分比时更换不透明度 */
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0;
+    }
+}
+/***
+** 闹钟振铃效果
+*/
+.ec-shake-time:hover {
+    animation: shake-time 1s ease;
+}
+
+@keyframes shake-time {
+    0% {
+        transform: scale(1);  /* 初始化 */
+    }
+    10%, 20% {
+        transform: scale(0.9) rotate(-3deg);  /* 变小 旋转 */
+    }
+    30%, 50%, 70%, 90% {
+        transform: scale(1.1) rotate(3deg);  /* 变大 旋转 */
+    }
+    40%, 60%, 80% {
+        transform: scale(1.1) rotate(-3deg);  /* 变大 旋转 */
+    }
+    100% {
+        transform: scale(1) rotate(0);  /* 回归正常 */
+    }
+}
+/***
+** 摇摆效果
+*/
+.ec-wobble-t, .ec-skew-r-t, .ec-skew-l-t {
+    transform-origin: 0 100%;
+}
+
+.ec-wobble-b, .ec-skew-r-b, .ec-skew-l-b {
+    transform-origin: 100% 0;
+}
+
+.ec-wobble-c:hover, .ec-wobble-t:hover,.ec-wobble-b:hover {
+    animation: wobble-x 1s ease-in-out;
+}
+@keyframes wobble-x {
+    16.65% {
+        -webkit-transform: skew(-12deg);
+        transform: skew(-12deg);
+    }
+    33.3% {
+        -webkit-transform: skew(10deg);
+        transform: skew(10deg);
+    }
+    49.95% {
+        -webkit-transform: skew(-6deg);
+        transform: skew(-6deg);
+    }
+    66.6% {
+        -webkit-transform: skew(4deg);
+        transform: skew(4deg);
+    }
+    83.25% {
+        -webkit-transform: skew(-2deg);
+        transform: skew(-2deg);
+    }
+    100% {
+        -webkit-transform: skew(0);
+        transform: skew(0);
+    }
+}
+/***
+** 摇晃效果
+*/
+.ec-swing:hover {
+    animation: swing .5s ease alternate;
+}
+
+@keyframes swing {
+    20% {
+        transform: rotate(15deg);
+    }
+    40% {
+        transform: rotate(-10deg);
+    }
+    60% {
+        transform: rotate(5deg);
+    }
+    80% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+/***
+** 抖动效果
+*/
+.ec-shake:hover {
+    animation: shake .5s ease;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-10px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(10px);
+    }
+}
+/***
+** 弹跳效果
+*/
+.ec-bounce:hover {
+    animation: bounce 1s ease;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
